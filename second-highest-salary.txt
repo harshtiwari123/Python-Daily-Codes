@@ -1,0 +1,16 @@
+-- Step 1: Count the distinct salaries in the Employee table
+-- Step 2: If there are fewer than 2 distinct salaries, return NULL
+-- Step 3: If there are at least 2 distinct salaries, retrieve the second-highest salary
+-- Step 4: Return the second-highest salary or NULL based on the condition
+
+
+SELECT 
+    CASE 
+        WHEN (SELECT COUNT(DISTINCT salary) FROM Employee) < 2 THEN NULL
+        ELSE (
+            SELECT DISTINCT salary
+            FROM Employee
+            ORDER BY salary DESC
+            LIMIT 1 OFFSET 1
+        )
+    END AS SecondHighestSalary;
