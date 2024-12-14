@@ -1,0 +1,21 @@
+
+--------------------------- Group Sold Products By The Date----------------------------
+-- Algorithm
+-- Group and Concatenate: Group products by sell_date and concatenate them into a single string.
+-- Count Commas: Calculate the number of commas in the concatenated string to count distinct products.
+-- Add 1: Since GROUP_CONCAT includes the last comma, add 1 to get the correct number of distinct products.SELECT 
+    
+
+
+
+
+p.sell_date,(LENGTH(p.products) - LENGTH(REPLACE(p.products, ',', ''))) + 1 AS num_sold,
+    p.products
+FROM 
+    (SELECT 
+         sell_date,
+         GROUP_CONCAT(DISTINCT product ORDER BY product) AS products
+     FROM 
+         Activities
+     GROUP BY 
+         sell_date) AS p;
