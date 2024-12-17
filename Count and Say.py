@@ -1,8 +1,8 @@
 # ####################Simplified Algorithm for "Count and Say"#####################
 # 1.Base Case
-        # - If \( n = 1 \), return "1" since the first term is always "1".
+    # - If \( n = 1 \), return "1" since the first term is always "1".
 # 2.Recursive Step:
-        # - For \( n > 1 \), calculate the previous term by calling `countAndSay(n - 1)`.
+    # - For \( n > 1 \), calculate the previous term by calling `countAndSay(n - 1)`.
 # 3.Generating Next Term:
     # - Use a helper function `count_consecutive` to process the previous term:
     #   - Initialize `result` as an empty string.
